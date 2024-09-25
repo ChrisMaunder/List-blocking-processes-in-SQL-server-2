@@ -1,9 +1,8 @@
 # List blocking processes in SQL server
 
-Here's an alternate version that doesn't use sp\_who yet provides a little more information. It also provides the option to kill the blocking processes themself.IF NOT EXISTS (SELECT \* FROM sys.objects WHERE object\_id = OBJECT\_ID(N'[dbo].[ListBlocking]') AND type in (N'P', N'PC'))EXEC...
-Here's an alternate version that doesn't use sp\_who yet provides a little more information. It also provides the option to kill the blocking processes themself.
+Here's an alternate version that doesn't use sp\_who yet provides a little more information. It also provides the option to kill the blocking processes themselves.
 
-```cpp
+```tsql
 IF NOT EXISTS (SELECT * FROM sys.objects 
 WHERE object_id = OBJECT_ID(N'[dbo].[ListBlocking]') 
 AND type in (N'P', N'PC'))
@@ -12,8 +11,7 @@ GO
 
 /*===================================================================
 
-Description:    Wrapper to sp_who2 to show only those processes that 
-                are blocking. 
+Description:    Show processes that are blocking. 
                 
                 Please see http://support.microsoft.com/kb/224453 for
                 more info on locking.
